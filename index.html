@@ -5,79 +5,129 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Biodata Calvin</title>
   <style>
+    /* RESET & FONT */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin: 0;
       font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: #0a0f1f;
+      background: #0f172a;
       color: #e0e6f0;
+      line-height: 1.6;
     }
+
+    /* HEADER & NAV BAR */
     header {
-      text-align: center;
-      padding: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
       background: linear-gradient(90deg, #0d47a1, #1a237e);
       color: #fff;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
     }
-    h1 { margin: 0; font-size: 2.2rem; }
-    p { margin: 5px 0 0; font-size: 1rem; }
 
-    /* NAV Minimalis dan Responsif */
+    header h1 {
+      font-size: 1.8rem;
+      flex: 1;
+    }
+    header p {
+      display: none; /* hidden on PC, bisa aktif di bawah header */
+    }
+
     nav {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 10px;
-      background: #111827;
+      gap: 12px;
     }
+
     nav button {
-      background: #1e3a8a;
+      background: rgba(255,255,255,0.1);
       color: #fff;
       border: none;
-      padding: 8px 16px;
-      border-radius: 6px;
+      padding: 8px 14px;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 13px;
-      transition: 0.2s ease;
+      font-size: 14px;
+      transition: 0.3s;
     }
     nav button:hover {
-      background: #2563eb;
+      background: rgba(255,255,255,0.25);
       transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
-    @media (max-width: 600px) {
-      nav button {
-        font-size: 12px;
-        padding: 6px 12px;
-      }
+
+    /* HAMBURGER UNTUK HP */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .hamburger div {
+      width: 28px;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+    }
+
+    @media(max-width: 700px){
+      nav { display: none; }
+      .hamburger { display: flex; }
     }
 
     .container {
-      max-width: 800px;
-      margin: 30px auto;
+      max-width: 850px;
+      margin: 180px auto 40px;
       padding: 20px;
     }
+
+    /* TAB CONTENT */
     .tab-content {
       display: none;
       background: #1e293b;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-      transition: 0.3s;
-      line-height: 1.6;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      transition: 0.4s ease;
     }
-    .tab-content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-    ul { padding-left: 20px; }
+    /* FOTO CALVIN */
+    .profile-pic {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 25px;
+      display: block;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .profile-pic:hover {
+      transform: scale(1.1) rotate(3deg);
+      box-shadow: 0 10px 25px rgba(59,130,246,0.6);
+    }
+
+    /* LIST */
+    ul { padding-left: 20px; margin-top: 10px; }
     ul li::before { content: "• "; color: #3b82f6; font-weight: bold; }
 
+    /* BUTTON COPY */
     .copy-btn {
       margin-left: 10px;
       background: #2563eb;
       color: #fff;
       border: none;
-      padding: 5px 8px;
+      padding: 6px 10px;
       border-radius: 6px;
       cursor: pointer;
       font-size: 12px;
@@ -85,65 +135,51 @@
     }
     .copy-btn:hover { background: #1e40af; }
 
-    form { display: flex; flex-direction: column; gap: 10px; }
+    form { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
     form input, form textarea {
-      padding: 10px;
-      border-radius: 6px;
+      padding: 12px;
+      border-radius: 8px;
       border: none;
       background: #0f172a;
       color: #e0e6f0;
+      font-size: 14px;
     }
     form button {
       background: #2563eb;
       color: #fff;
       border: none;
-      padding: 10px;
-      border-radius: 6px;
+      padding: 12px;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 15px;
+      transition: 0.3s;
     }
     form button:hover { background: #1e40af; }
-
-    /* FOTO INTERAKTIF SATU FOTO */
-    .profile-pic {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      display: block;
-      margin: 0 auto 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-    .profile-pic:hover {
-      transform: scale(1.1) rotate(3deg);
-      box-shadow: 0 8px 20px rgba(59,130,246,0.6);
-    }
-
-    strong { color: #3b82f6; }
   </style>
 </head>
 <body>
   <header>
-    <h1>Calvin Sahputra Buulolo</h1>
-    <p>Mahasiswa Ilmu Komputer</p>
+    <h1>Calvin Sahputra</h1>
+    <nav>
+      <button data-tab="tentang">Tentang</button>
+      <button data-tab="pendidikan">Pendidikan</button>
+      <button data-tab="pengalaman">Pengalaman</button>
+      <button data-tab="keahlian">Keahlian</button>
+      <button data-tab="kontak">Kontak</button>
+    </nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </header>
-
-  <nav>
-    <button data-tab="tentang">Tentang</button>
-    <button data-tab="pendidikan">Pendidikan</button>
-    <button data-tab="pengalaman">Pengalaman</button>
-    <button data-tab="keahlian">Keahlian</button>
-    <button data-tab="kontak">Kontak</button>
-  </nav>
 
   <div class="container">
     <div id="tentang" class="tab-content active">
       <img src="img/calvin.jpg" alt="Foto Calvin" class="profile-pic">
       <h2>Tentang Saya</h2>
-      <p>Halo! Nama saya Calvin, seorang mahasiswa Ilmu Komputer yang lahir di Pekanbaru pada 03 November 2006. Saat ini saya berusia 18 tahun dan sedang menimba ilmu di Universitas Negeri Medan.</p>
-      <p>Saya punya rasa ingin tahu yang tinggi, dan tidak pernah menolak tantangan baru.</p>
+      <p>Halo! Nama saya Calvin, mahasiswa Ilmu Komputer, lahir di Pekanbaru pada 03 November 2006. Saat ini berusia 18 tahun dan menimba ilmu di Universitas Negeri Medan.</p>
+      <p>Saya punya rasa ingin tahu yang tinggi dan tidak menolak tantangan baru.</p>
       <p>Moto saya: <em>"Apapun yang terjadi, tetaplah bernafas"</em>.</p>
     </div>
 
@@ -159,7 +195,7 @@
 
     <div id="pengalaman" class="tab-content">
       <h2>Pengalaman</h2>
-      <p>Selama PKL di Telkom Gunungsitoli, saya belajar tentang jaringan komputer, troubleshooting, dan pemecahan masalah dunia nyata. Pengalaman ini membuka wawasan tentang cara kerja infrastruktur teknologi di lapangan.</p>
+      <p>Selama PKL di Telkom Gunungsitoli, saya belajar tentang jaringan komputer, troubleshooting, dan pemecahan masalah dunia nyata.</p>
     </div>
 
     <div id="keahlian" class="tab-content">
@@ -176,6 +212,7 @@
       <h2>Kontak</h2>
       <p>Nomor HP: <span id="phone">0853-6667-9370</span> <button class="copy-btn" data-copy="phone">Copy</button></p>
       <p>Email: <span id="email">calvinsahputra4@gmail.com</span> <button class="copy-btn" data-copy="email">Copy</button></p>
+
       <h3>Kirim Pesan</h3>
       <form onsubmit="sendEmail(event)">
         <input type="text" id="subject" placeholder="Subjek" required>
@@ -188,19 +225,26 @@
   <script>
     const tabs = document.querySelectorAll('nav button');
     const contents = document.querySelectorAll('.tab-content');
+    const nav = document.querySelector('nav');
+    const hamburger = document.querySelector('.hamburger');
 
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
         contents.forEach(c => c.classList.remove('active'));
         document.getElementById(tab.dataset.tab).classList.add('active');
+        if(window.innerWidth <= 700) nav.style.display = 'none';
       });
     });
+
+    function toggleMenu() {
+      if(nav.style.display === 'flex') nav.style.display = 'none';
+      else nav.style.display = 'flex';
+    }
 
     document.querySelectorAll('.copy-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const id = btn.dataset.copy;
-        const text = document.getElementById(id).textContent;
-        navigator.clipboard.writeText(text);
+        navigator.clipboard.writeText(document.getElementById(id).textContent);
         btn.textContent = 'Copied!';
         setTimeout(() => btn.textContent = 'Copy', 1500);
       });
