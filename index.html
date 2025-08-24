@@ -18,14 +18,8 @@
       color: #fff;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     }
-    h1 {
-      margin: 0;
-      font-size: 2.2rem;
-    }
-    p {
-      margin: 5px 0 0;
-      font-size: 1rem;
-    }
+    h1 { margin: 0; font-size: 2.2rem; }
+    p { margin: 5px 0 0; font-size: 1rem; }
     nav {
       display: flex;
       justify-content: center;
@@ -43,9 +37,7 @@
       font-size: 14px;
       transition: 0.3s;
     }
-    nav button:hover {
-      background: #2563eb;
-    }
+    nav button:hover { background: #2563eb; }
     .container {
       max-width: 800px;
       margin: 30px auto;
@@ -60,22 +52,10 @@
       transition: 0.3s;
       line-height: 1.6;
     }
-    .tab-content.active {
-      display: block;
-      animation: fadeIn 0.4s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    ul {
-      padding-left: 20px;
-    }
-    ul li::before {
-      content: "• ";
-      color: #3b82f6;
-      font-weight: bold;
-    }
+    .tab-content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    ul { padding-left: 20px; }
+    ul li::before { content: "• "; color: #3b82f6; font-weight: bold; }
     .copy-btn {
       margin-left: 10px;
       background: #2563eb;
@@ -87,14 +67,8 @@
       font-size: 12px;
       transition: 0.2s;
     }
-    .copy-btn:hover {
-      background: #1e40af;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    .copy-btn:hover { background: #1e40af; }
+    form { display: flex; flex-direction: column; gap: 10px; }
     form input, form textarea {
       padding: 10px;
       border-radius: 6px;
@@ -111,21 +85,26 @@
       cursor: pointer;
       font-size: 14px;
     }
-    form button:hover {
-      background: #1e40af;
-    }
+    form button:hover { background: #1e40af; }
+
+    /* FOTO INTERAKTIF SATU FOTO */
     .profile-pic {
-      width: 120px;
-      height: 120px;
+      width: 200px;        /* diperbesar */
+      height: 200px;
       border-radius: 50%;
       object-fit: cover;
       display: block;
       margin: 0 auto 20px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
     }
-    strong {
-      color: #3b82f6;
+    .profile-pic:hover {
+      transform: scale(1.1) rotate(3deg);
+      box-shadow: 0 8px 20px rgba(59,130,246,0.6);
     }
+
+    strong { color: #3b82f6; }
   </style>
 </head>
 <body>
@@ -223,4 +202,3 @@
   </script>
 </body>
 </html>
-
