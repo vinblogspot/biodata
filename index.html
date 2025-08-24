@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Biodata Calvin</title>
   <style>
-    /* RESET & FONT */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', Tahoma, sans-serif;
@@ -14,7 +13,7 @@
       line-height: 1.6;
     }
 
-    /* HEADER & NAV BAR */
+    /* HEADER */
     header {
       display: flex;
       justify-content: space-between;
@@ -28,20 +27,14 @@
       top: 0;
       z-index: 1000;
     }
+    header h1 { font-size: 1.8rem; flex: 1; }
 
-    header h1 {
-      font-size: 1.8rem;
-      flex: 1;
-    }
-    header p {
-      display: none; /* hidden on PC, bisa aktif di bawah header */
-    }
-
+    /* NAVBAR */
     nav {
       display: flex;
       gap: 12px;
+      transition: 0.3s ease;
     }
-
     nav button {
       background: rgba(255,255,255,0.1);
       color: #fff;
@@ -57,7 +50,7 @@
       transform: translateY(-2px);
     }
 
-    /* HAMBURGER UNTUK HP */
+    /* HAMBURGER */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -71,36 +64,39 @@
       border-radius: 2px;
     }
 
+    /* NAV VERTIKAL HP */
+    nav.vertical {
+      display: flex !important;
+      flex-direction: column;
+      gap: 10px;
+      background: #1e293b;
+      padding: 15px;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      animation: slideDown 0.3s ease forwards;
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @media(max-width: 700px){
       nav { display: none; }
       .hamburger { display: flex; }
     }
 
-    .container {
-      max-width: 850px;
-      margin: 180px auto 40px;
-      padding: 20px;
-    }
+    /* CONTAINER */
+    .container { max-width: 850px; margin: 180px auto 40px; padding: 20px; }
 
     /* TAB CONTENT */
-    .tab-content {
-      display: none;
-      background: #1e293b;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      transition: 0.4s ease;
-    }
-    .tab-content.active {
-      display: block;
-      animation: fadeIn 0.4s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    .tab-content { display: none; background: #1e293b; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); transition: 0.4s ease; }
+    .tab-content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* FOTO CALVIN */
+    /* FOTO */
     .profile-pic {
       width: 220px;
       height: 220px;
@@ -117,43 +113,15 @@
       box-shadow: 0 10px 25px rgba(59,130,246,0.6);
     }
 
-    /* LIST */
     ul { padding-left: 20px; margin-top: 10px; }
     ul li::before { content: "• "; color: #3b82f6; font-weight: bold; }
 
-    /* BUTTON COPY */
-    .copy-btn {
-      margin-left: 10px;
-      background: #2563eb;
-      color: #fff;
-      border: none;
-      padding: 6px 10px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 12px;
-      transition: 0.2s;
-    }
+    .copy-btn { margin-left: 10px; background: #2563eb; color: #fff; border: none; padding: 6px 10px; border-radius: 6px; cursor: pointer; font-size: 12px; transition: 0.2s; }
     .copy-btn:hover { background: #1e40af; }
 
     form { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
-    form input, form textarea {
-      padding: 12px;
-      border-radius: 8px;
-      border: none;
-      background: #0f172a;
-      color: #e0e6f0;
-      font-size: 14px;
-    }
-    form button {
-      background: #2563eb;
-      color: #fff;
-      border: none;
-      padding: 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 15px;
-      transition: 0.3s;
-    }
+    form input, form textarea { padding: 12px; border-radius: 8px; border: none; background: #0f172a; color: #e0e6f0; font-size: 14px; }
+    form button { background: #2563eb; color: #fff; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-size: 15px; transition: 0.3s; }
     form button:hover { background: #1e40af; }
   </style>
 </head>
@@ -182,7 +150,6 @@
       <p>Saya punya rasa ingin tahu yang tinggi dan tidak menolak tantangan baru.</p>
       <p>Moto saya: <em>"Apapun yang terjadi, tetaplah bernafas"</em>.</p>
     </div>
-
     <div id="pendidikan" class="tab-content">
       <h2>Riwayat Pendidikan</h2>
       <ul>
@@ -192,12 +159,10 @@
         <li>Universitas Negeri Medan (2024–sekarang)</li>
       </ul>
     </div>
-
     <div id="pengalaman" class="tab-content">
       <h2>Pengalaman</h2>
       <p>Selama PKL di Telkom Gunungsitoli, saya belajar tentang jaringan komputer, troubleshooting, dan pemecahan masalah dunia nyata.</p>
     </div>
-
     <div id="keahlian" class="tab-content">
       <h2>Keahlian</h2>
       <ul>
@@ -207,7 +172,6 @@
       </ul>
       <p>Dan ya, kalau santai saya suka main game buat melepas stres.</p>
     </div>
-
     <div id="kontak" class="tab-content">
       <h2>Kontak</h2>
       <p>Nomor HP: <span id="phone">0853-6667-9370</span> <button class="copy-btn" data-copy="phone">Copy</button></p>
@@ -226,19 +190,17 @@
     const tabs = document.querySelectorAll('nav button');
     const contents = document.querySelectorAll('.tab-content');
     const nav = document.querySelector('nav');
-    const hamburger = document.querySelector('.hamburger');
 
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
         contents.forEach(c => c.classList.remove('active'));
         document.getElementById(tab.dataset.tab).classList.add('active');
-        if(window.innerWidth <= 700) nav.style.display = 'none';
+        if(window.innerWidth <= 700) nav.classList.remove('vertical'); // auto hide setelah pilih
       });
     });
 
     function toggleMenu() {
-      if(nav.style.display === 'flex') nav.style.display = 'none';
-      else nav.style.display = 'flex';
+      nav.classList.toggle('vertical');
     }
 
     document.querySelectorAll('.copy-btn').forEach(btn => {
