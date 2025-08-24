@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biodata Calvin</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #0a0f1f;
+      color: #e0e6f0;
+    }
+    header {
+      text-align: center;
+      padding: 30px;
+      background: linear-gradient(90deg, #0d47a1, #1a237e);
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+    p {
+      margin: 5px 0 0;
+      font-size: 1rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+      background: #111827;
+    }
+    nav button {
+      background: #1e3a8a;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+    nav button:hover {
+      background: #2563eb;
+    }
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+    .tab-content {
+      display: none;
+      background: #1e293b;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      transition: 0.3s;
+      line-height: 1.6;
+    }
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    ul {
+      padding-left: 20px;
+    }
+    ul li::before {
+      content: "• ";
+      color: #3b82f6;
+      font-weight: bold;
+    }
+    .copy-btn {
+      margin-left: 10px;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 5px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: 0.2s;
+    }
+    .copy-btn:hover {
+      background: #1e40af;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    form input, form textarea {
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      background: #0f172a;
+      color: #e0e6f0;
+    }
+    form button {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    form button:hover {
+      background: #1e40af;
+    }
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    }
+    strong {
+      color: #3b82f6;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Calvin Sahputra Buulolo</h1>
+    <p>Mahasiswa Ilmu Komputer</p>
+  </header>
+
+  <nav>
+    <button data-tab="tentang">Tentang</button>
+    <button data-tab="pendidikan">Pendidikan</button>
+    <button data-tab="pengalaman">Pengalaman</button>
+    <button data-tab="keahlian">Keahlian</button>
+    <button data-tab="kontak">Kontak</button>
+  </nav>
+
+  <div class="container">
+    <div id="tentang" class="tab-content active">
+      <img src="https://via.placeholder.com/120" alt="Foto Calvin" class="profile-pic">
+      <h2>Tentang Saya</h2>
+      <p>Halo! Nama saya Calvin, seorang mahasiswa Ilmu Komputer yang lahir di Pekanbaru  pada 03 November 2006. Saat ini saya berusia 18 tahun dan sedang menimba ilmu di Universitas Negeri Medan</p>
+      <p>Saya punya rasa ingin tahu yang tinggi, dan tidak pernah menolak tantangan baru. </p>
+      <p>Moto saya: <em>"Apapun yang terjadi, tetaplah bernafas"</em>.</p>
+    </div>
+
+    <div id="pendidikan" class="tab-content">
+      <h2>Riwayat Pendidikan</h2>
+      <p>Saya beruntung mendapat pendidikan yang cukup variatif, mulai dari dasar hingga perguruan tinggi. Berikut perjalanan akademik saya:</p>
+      <ul>
+        <li>SDN 071201 Lolowau (2012–2019)</li>
+        <li>SMPN 1 Lolowau (2019–2021)</li>
+        <li>SMKN 1 Lolowau (2021–2024)</li>
+        <li>Universitas Negeri Medan (2024–sekarang)</li>
+      </ul>
+    </div>
+
+    <div id="pengalaman" class="tab-content">
+      <h2>Pengalaman</h2>
+      <p>Selama PKL di Telkom Gunungsitoli, saya belajar tentang jaringan komputer, troubleshooting, dan pemecahan masalah dunia nyata. Pengalaman ini membuka wawasan tentang cara kerja infrastruktur teknologi di lapangan.</p>
+    </div>
+
+    <div id="keahlian" class="tab-content">
+      <h2>Keahlian</h2>
+      <p>Beberapa kemampuan yang saya kuasai meliputi:</p>
+      <ul>
+        <li>Penggunaan AI, Dasar Python, dan HTML/CSS untuk pengembangan aplikasi dan web.</li>
+        <li>Jaringan Dasar untuk memahami cara kerja koneksi dan keamanan.</li>
+        <li>Pengalaman sebagai panitia acara kampus/komunitas, melatih kerja sama tim.</li>
+      </ul>
+      <p>Dan ya, kalau santai saya suka main game buat melepas stres.</p>
+    </div>
+
+    <div id="kontak" class="tab-content">
+      <h2>Kontak</h2>
+      <p>Butuh ngobrol atau kerja bareng? Hubungi saya lewat:</p>
+      <p>Nomor HP: <span id="phone">0853-6667-9370</span> <button class="copy-btn" data-copy="phone">Copy</button></p>
+      <p>Email: <span id="email">calvinsahputra4@gmail.com</span> <button class="copy-btn" data-copy="email">Copy</button></p>
+
+      <h3>Kirim Pesan</h3>
+      <form onsubmit="sendEmail(event)">
+        <input type="text" id="subject" placeholder="Subjek" required>
+        <textarea id="message" rows="4" placeholder="Pesan Anda" required></textarea>
+        <button type="submit">Kirim via Email</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('nav button');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        contents.forEach(c => c.classList.remove('active'));
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.copy;
+        const text = document.getElementById(id).textContent;
+        navigator.clipboard.writeText(text);
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = 'Copy', 1500);
+      });
+    });
+
+    function sendEmail(e) {
+      e.preventDefault();
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      window.location.href = `mailto:calvinsahputra4@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+    }
+  </script>
+</body>
+</html>
