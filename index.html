@@ -123,6 +123,48 @@
     form input, form textarea { padding: 12px; border-radius: 8px; border: none; background: #0f172a; color: #e0e6f0; font-size: 14px; }
     form button { background: #2563eb; color: #fff; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-size: 15px; transition: 0.3s; }
     form button:hover { background: #1e40af; }
+
+    /* SKILL STYLE */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .skill {
+      background: #0f172a;
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    .skill span {
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      color: #f1f5f9;
+    }
+
+    .progress {
+      background: #334155;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 18px;
+    }
+
+    .progress-bar {
+      background: linear-gradient(90deg, #3b82f6, #2563eb);
+      height: 100%;
+      text-align: right;
+      padding-right: 8px;
+      font-size: 12px;
+      font-weight: bold;
+      color: #fff;
+      border-radius: 10px 0 0 10px;
+    }
   </style>
 </head>
 <body>
@@ -163,10 +205,28 @@
     </div>
     <div id="keahlian" class="tab-content">
       <h2>Keahlian</h2>
-        <li>Penggunaan AI, Dasar Python, dan HTML/CSS untuk pengembangan aplikasi dan web.</li>
-        <li>Jaringan Dasar untuk memahami cara kerja koneksi dan keamanan.</li>
-        <li>Pengalaman sebagai panitia acara kampus/komunitas, melatih kerja sama tim.</li>
-      <p>Dan ya, kalau santai saya suka main game buat melepas stres.</p>
+      <div class="skills">
+        <div class="skill">
+          <span>💻 Microsoft Office (Word, Excel, PowerPoint)</span>
+          <div class="progress"><div class="progress-bar" style="width:80%">80%</div></div>
+        </div>
+        <div class="skill">
+          <span>🗣️ Komunikasi</span>
+          <div class="progress"><div class="progress-bar" style="width:60%">60%</div></div>
+        </div>
+        <div class="skill">
+          <span>🤝 Kerja Sama Tim</span>
+          <div class="progress"><div class="progress-bar" style="width:70%">70%</div></div>
+        </div>
+        <div class="skill">
+          <span>⏰ Manajemen Waktu</span>
+          <div class="progress"><div class="progress-bar" style="width:80%">80%</div></div>
+        </div>
+        <div class="skill">
+          <span>⚡ Kemampuan Belajar Cepat</span>
+          <div class="progress"><div class="progress-bar" style="width:70%">70%</div></div>
+        </div>
+      </div>
     </div>
     <div id="kontak" class="tab-content">
       <h2>Kontak</h2>
@@ -217,5 +277,3 @@
   </script>
 </body>
 </html>
-
-
